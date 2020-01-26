@@ -1,3 +1,11 @@
 <% @posts.each do |post| %>
   <div><%= post.title %></div>
-<% end %>
+  <p><%= last_updated(post) %></p>
+<%end %>
+
+<ul>
+<%= content_for :posts do %>
+  <li><%= post.title%></li>
+  <li><%= post.description%></li>
+<%end %>
+</ul>
