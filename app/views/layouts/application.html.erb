@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>BlogFlash</title>
+  <title><%= yield :title %></title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= yield :title %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+  <section style="background: green"><%= yield :bugs %></section>
+  <%= yield %>
 
 </body>
+
 </html>
