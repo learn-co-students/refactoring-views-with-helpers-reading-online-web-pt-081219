@@ -24,3 +24,480 @@
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Testing"], ["description", "testing"], ["created_at", "2016-01-26 15:06:03.106369"], ["updated_at", "2016-01-26 15:06:03.106369"]]
   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Started GET "/" for ::1 at 2020-01-27 16:42:57 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 24ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2020-01-27 16:43:24 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 336ms (Views: 317.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-27 16:43:26 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 27ms (Views: 18.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-27 20:24:43 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 43ms (Views: 34.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-27 20:24:53 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 36ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/" for ::1 at 2020-01-27 20:25:53 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 99ms (Views: 93.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/" for ::1 at 2020-01-27 20:27:52 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (17.4ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `updated_at' for nil:NilClass):
+    1: <% @posts.each do |post| %>
+    2: <div><%= post.title %> - <p><%= last_updated @post %></p>
+    3: </div>
+    4: <% end %>
+  
+app/helpers/posts_helper.rb:3:in `last_updated'
+app/views/posts/index.html.erb:2:in `block in _app_views_posts_index_html_erb___4377315333205932738_70193667517360'
+app/views/posts/index.html.erb:1:in `_app_views_posts_index_html_erb___4377315333205932738_70193667517360'
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (117.4ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in render_exception_with_web_console at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/extensions.rb:16)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers_leahsilber__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb__1726728477501306095_70193664250200 at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (98.9ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (216.9ms)
+Started GET "/posts/" for ::1 at 2020-01-27 20:28:02 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 37ms (Views: 31.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-27 20:28:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 37ms (Views: 29.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-27 20:29:08 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 33ms (Views: 25.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/edit" for ::1 at 2020-01-27 20:29:10 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=edit):
+  
+app/controllers/posts_controller.rb:7:in `show'
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (114.7ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers_leahsilber__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb__1726728477501306095_70193663167720 at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (98.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (220.8ms)
+Started GET "/posts/1/edit" for ::1 at 2020-01-27 20:29:15 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 42ms (Views: 35.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/authors" for ::1 at 2020-01-27 20:30:27 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/authors"):
+  
+actionpack (5.0.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [9 times] (8.7ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (165.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers_leahsilber__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb__1726728477501306095_70193682622780 at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (98.7ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (223.6ms)
+Started GET "/authors/1" for ::1 at 2020-01-27 20:30:29 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/authors/1"):
+  
+actionpack (5.0.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered collection of /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [9 times] (2.4ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (147.6ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers_leahsilber__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb__1726728477501306095_70193667518800 at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (95.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (222.3ms)
+Started GET "/authors/1" for ::1 at 2020-01-27 20:30:45 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/authors/1"):
+  
+actionpack (5.0.7.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/Users/leahsilber/.rvm/rubies/ruby-2.4.6/lib/ruby/2.4.0/webrick/server.rb:308:in `block in start_thread'
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered collection of /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [9 times] (2.4ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (150.7ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers_leahsilber__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb__1726728477501306095_70193667257640 at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (88.8ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (205.6ms)
+Started GET "/posts/1" for ::1 at 2020-01-28 20:53:04 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 76ms (Views: 47.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:53:49 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 37ms (Views: 30.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:54:13 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 26.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:55:11 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (44.8ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `bugs' for #<#<Class:0x00007fae7fb82240>:0x00007fae7d9c1390>):
+    4: </p>
+    5: <p><%= @post.description %></p>
+    6: 
+    7: <% bugs "There are uggy bugs." %>
+  
+app/views/posts/show.html.erb:7:in `_app_views_posts_show_html_erb__3170962652906222338_70193704255980'
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (103.0ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in render_exception_with_web_console at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/extensions.rb:16)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::HTML` to `Mime[:html]`. (called from acceptable_content_type? at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/middleware.rb:58)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+DEPRECATION WARNING: Accessing mime types via constants is deprecated. Please change `Mime::WEB_CONSOLE_V2` to `Mime[:web_console_v2]`. (called from ___sers_leahsilber__rvm_gems_ruby_______gems_web_console_______lib_web_console_templates_console_js_erb__1726728477501306095_70193686793220 at /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb:491)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (96.1ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendering /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/leahsilber/.rvm/gems/ruby-2.4.6/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (214.3ms)
+Started GET "/posts/1" for ::1 at 2020-01-28 20:55:50 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 39ms (Views: 27.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:55:51 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 36ms (Views: 30.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:55:58 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 17.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:56:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 28ms (Views: 20.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:56:47 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 27ms (Views: 20.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:56:59 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:57:42 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 34ms (Views: 27.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:57:45 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 34ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-01-28 20:58:11 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 23.7ms | ActiveRecord: 0.2ms)
+
+
